@@ -1,0 +1,424 @@
+@import "_cores.scss";
+@import "_fontes.scss";
+
+@mixin mobile {
+    @media only screen and (max-width:480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media only screen and (max-width:900px) {
+        @content;
+    }
+}
+
+@mixin flexCentro {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin primeiroFilho {
+    &:first-child{
+        margin-left: 0;
+    }
+}
+
+@mixin sombra {
+    -webkit-box-shadow: -1px 9px 8px 0px rgba(0,0,0,0.10);
+    -moz-box-shadow: -1px 9px 8px 0px rgba(0,0,0,0.10);
+    box-shadow: -1px 9px 8px 0px rgba(0,0,0,0.10);
+}
+
+@mixin titulos {
+    font-family: $titulos;
+    color: $primaria;
+}
+
+@mixin texto {
+    font-family: $textos;
+    color: $secundaria;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr 1fr;
+    grid-template-areas: "header header header header"
+                         "slide slide slide slide"
+                         "funciona funciona funciona funciona"
+                         "somos somos somos somos"
+                         "clientes clientes clientes clientes"
+                         "rodape rodape rodape rodape"
+                         "direitos direitos direitos direitos";
+}
+
+header{
+    grid-area: header;
+    grid-column: 1/5;
+    align-items: center;
+    height: 64px;
+    z-index: 5;
+
+    nav{
+        width: 100%;
+        position: fixed;
+        background-color: $neutra;
+        height: 64px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 100px;
+        @include tablet{
+            padding: 0 20px;
+        };
+        @include sombra;
+
+        .logo{
+            img{
+                margin-top: 10px;
+                width: 250px;
+                cursor: pointer;
+            }
+        }
+
+        ul{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            li{
+                list-style: none;
+                margin-left: 20px;
+                @include tablet{
+                    margin-left: 0 10px;
+                };
+                @include primeiroFilho;
+                a{
+                    font-family: $botoes;
+                    text-decoration: none;
+                    color: $primaria;
+                    font-size: 1.1rem;
+                    letter-spacing: 2px;
+                    text-transform: capitalize;
+                    font-weight: 500;
+                    &:hover{
+                        transition: .5s;
+                        border-bottom: 1px solid $secundaria;
+                        color: $secundaria;
+                    }
+                }
+                .cadastro{
+                    color: $neutra;
+                    background-color: $primaria;
+                    padding: .8em 1em;
+                    border-radius: 5px;
+                    font-weight: 400;
+                    &:hover{
+                        transition: .5s;
+                        color: $contraste;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.slide{ 
+    grid-area: slide;
+    grid-column: 1/5;
+    background-color: $contraste;
+    width: 100%;
+    position: relative;
+    .glider{
+        overflow-x: hidden;
+        display: flex;
+        align-items: center;
+        height: 400px;
+        .principal{
+            padding: 0 200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .textos{
+                max-width: 40%;
+                display: block;
+                h1{
+                    @include titulos;
+                    font-size: 42px;
+                    font-weight: 700;
+                    letter-spacing: 2px
+                }
+                p{
+                    @include texto;
+                    font-size: 18px;
+                }
+            }
+            .svg{
+                img{
+                    max-width: 500px;
+                    height: auto;
+                }
+            }
+            .dolar{
+                margin-top: 20px;
+                background-color: $primaria;
+                max-width: 40%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: .6em 1em;
+                border-radius: 5px;
+                span{
+                    @include texto;
+                    color: $neutra;
+                    font-weight: 200;
+                    font-size: 18px;
+                    &:first-child{
+                        @include titulos;
+                        color: $neutra
+                    }
+                }
+            }
+        }
+        .foto{
+            img{
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+    .glider-prev{
+        color: $secundaria;
+        position: absolute;
+        left: 3%;
+        top: 50%;
+    }
+    .glider-next{
+        color: $secundaria;
+        position: absolute;
+        right: 3%;
+        top: 50%;
+    }
+    .dots{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.como_funciona{
+    grid-area: funciona;
+    grid-column: 2/4;
+    height: 500px;
+    margin-top: 50px;
+    .titulo{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        h2{
+            @include titulos; 
+            font-size: 36px;
+            letter-spacing: 1px;
+            text-transform: capitalize;
+        }
+        p{
+            @include texto;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+    }
+    .conteudo{
+        height: 400px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .card{
+            margin-top: 80px;
+            .vector{
+                display: flex;
+                justify-content: space-between;
+                margin-left: 25%;
+                img{
+                    width: 150px;
+                }
+            }
+            .conteudo{
+                display: block;
+                text-align: center;
+                margin-top: 25px;
+                h3{
+                    @include titulos;
+                    font-size: 1.6em;
+                }
+                p{
+                    @include texto;
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+}
+
+.quem_somos{
+    grid-area: somos;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $contraste;
+    padding: 0 200px;
+
+    .texto{
+        max-width: 500px;
+        h1{
+            @include titulos;            
+            letter-spacing: 2px;
+            font-size: 32px;
+        }
+        p{
+            @include texto;
+            line-height: 25px;
+            font-size: 16px;
+        }
+    }
+
+    .imagem{
+        img{
+            max-width: 400px;
+        }
+    }
+}
+
+.clientes{
+    grid-area: clientes;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 0;
+    
+    h1{
+        @include titulos;
+        font-size: 36px;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+    }
+
+    .telaCliente{
+        margin-top: 50px;
+        width: 100%; 
+    }
+    .a-box {
+        display: inline-block;
+        width: 240px;
+        text-align: center;
+      } 
+    .img-container {
+        height: 230px;
+        width: 200px;
+        overflow: hidden;
+        border-radius: 0px 0px 20px 20px;
+        display: inline-block;
+    }
+    
+    .img-container img {
+        transform: skew(0deg, -13deg);
+        height: 250px;
+        margin: -35px 0px 0px -70px;
+        width: 150%;
+    }
+    
+    .inner-skew {
+        display: inline-block;
+        border-radius: 20px;
+        overflow: hidden;
+        padding: 0px;
+        transform: skew(0deg, 13deg);
+        font-size: 0px;
+        margin: 30px 0px 0px 0px;
+        background: #c8c2c2;
+        height: 250px;
+        width: 200px;
+    }
+    
+    .text-container {
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+      padding: 120px 20px 20px 20px;
+      border-radius: 20px;
+      background: #fff;
+      margin: -120px 0px 0px 0px;
+      line-height: 19px;
+      font-size: 14px;
+      font-family: $textos;
+    }
+    
+    .text-container h3 {
+      margin: 20px 0px 10px 0px;
+      color:$primaria;
+      font-family: $titulos;
+      font-size: 18px;
+    }
+}
+
+footer{
+    grid-area: rodape;
+    padding: 0 100px;
+    background-color: $contraste;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+
+    .conteudo{
+        img{
+            width: 250px;
+            margin-right: 50px;
+        }
+        p{
+            @include texto;
+            max-width: 300px;
+        }
+    }
+
+    .redes{
+        h4{
+            @include titulos;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+        .icones{
+            margin-right: 6em;
+            i{
+                cursor: pointer;
+                font-size: 30px;
+                padding: .4em .4em;
+                border-radius: 5px;
+                margin: 10px 10px 0 0;
+                background-color: $secundaria;
+                color: $neutra;
+                &:hover{
+                    transition: .5s;
+                    color: $contraste;
+                }
+            }
+        }
+    }
+}
+
+.direitos{
+    grid-area: direitos;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    @include texto;
+    p{
+        font-family: 12px;
+    }
+}
