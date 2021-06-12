@@ -11,7 +11,7 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 3fr 3fr 1fr;
-  grid-template-areas: "header header header header" "slide slide slide slide" "funciona funciona funciona funciona" "somos somos somos somos" "clientes clientes clientes clientes" "rodape rodape rodape rodape" "direitos direitos direitos direitos";
+  grid-template-areas: "header header header header" "slide slide slide slide" "funciona funciona funciona funciona" "somos somos somos somos" "clientes clientes clientes clientes" "blog blog blog blog" "faq faq faq faq" "simulador simulador simulador simulador" "rodape rodape rodape rodape" "direitos direitos direitos direitos";
 }
 
 header {
@@ -34,15 +34,20 @@ header nav {
   -moz-box-shadow: -1px 9px 8px 0px rgba(0, 0, 0, 0.1);
   box-shadow: -1px 9px 8px 0px rgba(0, 0, 0, 0.1);
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1200px) {
   header nav {
-    padding: 0 20px;
+    padding: 0;
   }
 }
 header nav .logo img {
   margin-top: 10px;
   width: 250px;
   cursor: pointer;
+}
+@media only screen and (max-width: 955px) {
+  header nav .logo img {
+    max-width: 150px;
+  }
 }
 header nav ul {
   display: flex;
@@ -53,9 +58,9 @@ header nav ul li {
   list-style: none;
   margin-left: 20px;
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 955px) {
   header nav ul li {
-    margin-left: 0 10px;
+    display: none;
   }
 }
 header nav ul li:first-child {
@@ -106,9 +111,25 @@ header nav ul li .cadastro:hover {
   justify-content: space-between;
   align-items: center;
 }
+@media only screen and (max-width: 1200px) {
+  .slide .glider .principal {
+    padding: 0 80px;
+  }
+}
 .slide .glider .principal .textos {
   max-width: 40%;
   display: block;
+}
+@media only screen and (max-width: 955px) {
+  .slide .glider .principal .textos {
+    padding: 0 10px;
+    max-width: 100%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .slide .glider .principal .textos {
+    padding: 0 10px;
+  }
 }
 .slide .glider .principal .textos h1 {
   font-family: "Raleway", sans-serif;
@@ -117,14 +138,33 @@ header nav ul li .cadastro:hover {
   font-weight: 700;
   letter-spacing: 2px;
 }
+@media only screen and (max-width: 480px) {
+  .slide .glider .principal .textos h1 {
+    font-size: 32px;
+  }
+}
 .slide .glider .principal .textos p {
   font-family: "Nunito", sans-serif;
   color: #333A56;
   font-size: 18px;
 }
+@media only screen and (max-width: 480px) {
+  .slide .glider .principal .textos p {
+    font-size: 14px;
+  }
+}
 .slide .glider .principal .svg img {
-  max-width: 500px;
-  height: auto;
+  max-width: 350px;
+}
+@media only screen and (max-width: 1200px) {
+  .slide .glider .principal .svg img {
+    max-width: 250px;
+  }
+}
+@media only screen and (max-width: 955px) {
+  .slide .glider .principal .svg img {
+    display: none;
+  }
 }
 .slide .glider .principal .dolar {
   margin-top: 20px;
@@ -135,6 +175,12 @@ header nav ul li .cadastro:hover {
   align-items: center;
   padding: 0.6em 1em;
   border-radius: 5px;
+}
+@media only screen and (max-width: 480px) {
+  .slide .glider .principal .dolar {
+    margin-top: 30px;
+    max-width: 50%;
+  }
 }
 .slide .glider .principal .dolar span {
   font-family: "Nunito", sans-serif;
@@ -147,6 +193,12 @@ header nav ul li .cadastro:hover {
   font-family: "Raleway", sans-serif;
   color: #52658F;
   color: #fdfdfd;
+}
+@media only screen and (max-width: 955px) {
+  .slide .glider .principal .dolar span {
+    font-weight: 100;
+    font-size: 14px;
+  }
 }
 .slide .glider .foto img {
   height: 100%;
@@ -177,10 +229,22 @@ header nav ul li .cadastro:hover {
   height: 500px;
   margin-top: 50px;
 }
+@media only screen and (max-width: 1200px) {
+  .como_funciona {
+    grid-column: 1/5;
+    padding: 10px;
+  }
+}
+@media only screen and (max-width: 955px) {
+  .como_funciona {
+    height: 1100px;
+  }
+}
 .como_funciona .titulo {
   display: flex;
   align-items: center;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 .como_funciona .titulo h2 {
   font-family: "Raleway", sans-serif;
@@ -189,17 +253,33 @@ header nav ul li .cadastro:hover {
   letter-spacing: 1px;
   text-transform: capitalize;
 }
+@media only screen and (max-width: 480px) {
+  .como_funciona .titulo h2 {
+    font-size: 32px;
+  }
+}
 .como_funciona .titulo p {
   font-family: "Nunito", sans-serif;
   color: #333A56;
   font-size: 18px;
   margin-top: 5px;
 }
+@media only screen and (max-width: 480px) {
+  .como_funciona .titulo p {
+    font-size: 12px;
+  }
+}
 .como_funciona .conteudo {
   height: 400px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+@media only screen and (max-width: 955px) {
+  .como_funciona .conteudo {
+    height: auto;
+    display: block;
+  }
 }
 .como_funciona .conteudo .card {
   margin-top: 80px;
@@ -212,6 +292,18 @@ header nav ul li .cadastro:hover {
 .como_funciona .conteudo .card .vector img {
   width: 150px;
 }
+@media only screen and (max-width: 955px) {
+  .como_funciona .conteudo .card .vector img {
+    margin: 0 auto;
+    transform: translateX(-60%);
+  }
+}
+@media only screen and (max-width: 480px) {
+  .como_funciona .conteudo .card .vector img {
+    margin: 0 auto;
+    transform: translateX(-25%);
+  }
+}
 .como_funciona .conteudo .card .conteudo {
   display: block;
   text-align: center;
@@ -222,6 +314,11 @@ header nav ul li .cadastro:hover {
   color: #52658F;
   font-size: 1.6em;
 }
+@media only screen and (max-width: 955px) {
+  .como_funciona .conteudo .card .conteudo h3 {
+    font-size: 1.5em;
+  }
+}
 .como_funciona .conteudo .card .conteudo p {
   font-family: "Nunito", sans-serif;
   color: #333A56;
@@ -230,15 +327,38 @@ header nav ul li .cadastro:hover {
 
 .quem_somos {
   grid-area: somos;
-  height: 400px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   background-color: #F7F5E6;
-  padding: 0 200px;
+  padding: 0 150px;
+  height: 500px;
+}
+@media only screen and (max-width: 1200px) {
+  .quem_somos {
+    padding: 0 20px;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 955px) {
+  .quem_somos {
+    height: auto;
+  }
 }
 .quem_somos .texto {
-  max-width: 500px;
+  max-width: 450px;
+}
+@media only screen and (max-width: 1200px) {
+  .quem_somos .texto {
+    padding: 40px 20px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .quem_somos .texto {
+    height: auto;
+    padding: 40px 0;
+  }
 }
 .quem_somos .texto h1 {
   font-family: "Raleway", sans-serif;
@@ -246,14 +366,35 @@ header nav ul li .cadastro:hover {
   letter-spacing: 2px;
   font-size: 32px;
 }
+@media only screen and (max-width: 955px) {
+  .quem_somos .texto h1 {
+    font-size: 28px;
+  }
+}
 .quem_somos .texto p {
   font-family: "Nunito", sans-serif;
   color: #333A56;
   line-height: 25px;
   font-size: 16px;
 }
+@media only screen and (max-width: 955px) {
+  .quem_somos .texto p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
 .quem_somos .imagem img {
   max-width: 400px;
+}
+@media only screen and (max-width: 955px) {
+  .quem_somos .imagem img {
+    max-width: 300px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .quem_somos .imagem img {
+    display: none;
+  }
 }
 
 .clientes {
@@ -270,6 +411,11 @@ header nav ul li .cadastro:hover {
   font-size: 36px;
   letter-spacing: 1px;
   text-transform: capitalize;
+}
+@media only screen and (max-width: 955px) {
+  .clientes h1 {
+    font-size: 28px;
+  }
 }
 .clientes .telaCliente {
   margin-top: 50px;
@@ -328,17 +474,46 @@ footer {
   background-color: #F7F5E6;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   height: 300px;
 }
+@media only screen and (max-width: 1200px) {
+  footer {
+    padding: 0 10px;
+  }
+}
+@media only screen and (max-width: 955px) {
+  footer {
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 480px) {
+  footer {
+    height: auto;
+    padding: 40px 0;
+  }
+}
 footer .conteudo img {
   width: 250px;
-  margin-right: 50px;
+}
+@media only screen and (max-width: 480px) {
+  footer .conteudo img {
+    max-width: 100%;
+    padding: 0 20px;
+  }
 }
 footer .conteudo p {
   font-family: "Nunito", sans-serif;
   color: #333A56;
   max-width: 300px;
+}
+@media only screen and (max-width: 480px) {
+  footer .conteudo p {
+    max-width: 100%;
+    padding: 0 20px;
+    font-size: 12px;
+  }
 }
 footer .redes h4 {
   font-family: "Raleway", sans-serif;
@@ -346,8 +521,18 @@ footer .redes h4 {
   font-size: 24px;
   letter-spacing: 2px;
 }
+@media only screen and (max-width: 480px) {
+  footer .redes h4 {
+    font-size: 16px;
+  }
+}
 footer .redes .icones {
   margin-right: 6em;
+}
+@media only screen and (max-width: 480px) {
+  footer .redes .icones {
+    width: 100%;
+  }
 }
 footer .redes .icones i {
   cursor: pointer;
@@ -362,17 +547,71 @@ footer .redes .icones i:hover {
   transition: 0.5s;
   color: #F7F5E6;
 }
+@media only screen and (max-width: 480px) {
+  footer .redes .icones i {
+    margin: 0;
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 955px) {
+  footer .redes {
+    margin-top: 20px;
+    margin-left: 50px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  footer .redes {
+    max-width: 100%;
+  }
+}
 
 .direitos {
   grid-area: direitos;
   display: flex;
   justify-content: center;
   padding: 10px 0;
+  text-align: center;
   font-family: "Nunito", sans-serif;
   color: #333A56;
 }
 .direitos p {
-  font-family: 12px;
+  font-size: 12px;
+}
+@media only screen and (max-width: 480px) {
+  .direitos p {
+    font-size: 12px;
+  }
+}
+
+.blog {
+  grid-area: blog;
+  grid-column: 1/5;
+  width: 100%;
+  height: auto;
+}
+.blog img {
+  width: 100%;
+  height: 500px;
+  padding: 5%;
+}
+
+.faq {
+  grid-area: faq;
+  grid-column: 1/5;
+  width: 100%;
+  height: auto;
+}
+.faq img {
+  width: 100%;
+  height: 500px;
+  padding: 5%;
+}
+
+.simulador {
+  grid-area: simulador;
+  grid-column: 1/5;
+  width: 100%;
+  height: auto;
 }
 
 /*# sourceMappingURL=style.css.map */

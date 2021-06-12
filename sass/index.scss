@@ -8,7 +8,13 @@
 }
 
 @mixin tablet {
-    @media only screen and (max-width:900px) {
+    @media only screen and (max-width:955px) {
+        @content;
+    }
+}
+
+@mixin  notebook {
+    @media only screen and (max-width:1200px) {
         @content;
     }
 }
@@ -51,12 +57,15 @@ body{
     display: grid;
     grid-template-columns: 1fr 3fr 3fr 1fr;
     grid-template-areas: "header header header header"
-                         "slide slide slide slide"
-                         "funciona funciona funciona funciona"
-                         "somos somos somos somos"
-                         "clientes clientes clientes clientes"
-                         "rodape rodape rodape rodape"
-                         "direitos direitos direitos direitos";
+    "slide slide slide slide"
+    "funciona funciona funciona funciona"
+    "somos somos somos somos"
+    "clientes clientes clientes clientes"
+    "blog blog blog blog"
+    "faq faq faq faq"
+    "simulador simulador simulador simulador"
+    "rodape rodape rodape rodape"
+    "direitos direitos direitos direitos";
 }
 
 header{
@@ -65,7 +74,7 @@ header{
     align-items: center;
     height: 64px;
     z-index: 5;
-
+    
     nav{
         width: 100%;
         position: fixed;
@@ -75,16 +84,19 @@ header{
         justify-content: space-between;
         align-items: center;
         padding: 0 100px;
-        @include tablet{
-            padding: 0 20px;
-        };
         @include sombra;
+        @include notebook{
+            padding: 0;
+        };
 
         .logo{
             img{
                 margin-top: 10px;
                 width: 250px;
                 cursor: pointer;
+                @include tablet{
+                    max-width: 150px;
+                };
             }
         }
 
@@ -96,7 +108,7 @@ header{
                 list-style: none;
                 margin-left: 20px;
                 @include tablet{
-                    margin-left: 0 10px;
+                    display: none
                 };
                 @include primeiroFilho;
                 a{
@@ -145,24 +157,45 @@ header{
             display: flex;
             justify-content: space-between;
             align-items: center;
+            @include notebook{
+                padding: 0 80px;
+            }
             .textos{
                 max-width: 40%;
                 display: block;
+                @include tablet{
+                    padding: 0 10px;
+                    max-width: 100%;
+                }
+                @include mobile{
+                    padding: 0 10px;
+                }
                 h1{
                     @include titulos;
                     font-size: 42px;
                     font-weight: 700;
-                    letter-spacing: 2px
+                    letter-spacing: 2px;
+                    @include mobile{
+                        font-size: 32px;
+                    }
                 }
                 p{
                     @include texto;
                     font-size: 18px;
+                    @include mobile{
+                        font-size: 14px;
+                    }
                 }
             }
             .svg{
                 img{
-                    max-width: 500px;
-                    height: auto;
+                    max-width: 350px;
+                    @include notebook{
+                        max-width: 250px;
+                    }
+                    @include tablet{
+                        display: none;
+                    }
                 }
             }
             .dolar{
@@ -174,6 +207,10 @@ header{
                 align-items: center;
                 padding: .6em 1em;
                 border-radius: 5px;
+                @include mobile{
+                    margin-top: 30px;
+                    max-width: 50%;
+                }
                 span{
                     @include texto;
                     color: $neutra;
@@ -182,6 +219,10 @@ header{
                     &:first-child{
                         @include titulos;
                         color: $neutra
+                    }
+                    @include tablet{
+                        font-weight: 100;
+                        font-size: 14px;
                     }
                 }
             }
@@ -218,20 +259,35 @@ header{
     grid-column: 2/4;
     height: 500px;
     margin-top: 50px;
+    @include notebook{
+        grid-column: 1/5;
+        padding: 10px;
+    }
+    @include tablet{
+        height: 1100px;
+    }
+    
     .titulo{
         display: flex;
         align-items: center;
         flex-direction: column;
+        flex-wrap: wrap;
         h2{
             @include titulos; 
             font-size: 36px;
             letter-spacing: 1px;
             text-transform: capitalize;
+            @include mobile{
+                font-size: 32px;
+            }
         }
         p{
             @include texto;
             font-size: 18px;
             margin-top: 5px;
+            @include mobile{
+                font-size: 12px;
+            }
         }
     }
     .conteudo{
@@ -239,6 +295,10 @@ header{
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        @include tablet{
+            height: auto;
+            display: block;
+        }
         .card{
             margin-top: 80px;
             .vector{
@@ -247,6 +307,14 @@ header{
                 margin-left: 25%;
                 img{
                     width: 150px;
+                    @include tablet{
+                        margin: 0 auto;
+                        transform: translateX(-60%);
+                    }
+                    @include mobile(){
+                        margin: 0 auto;
+                        transform: translateX(-25%);
+                    }
                 }
             }
             .conteudo{
@@ -256,6 +324,9 @@ header{
                 h3{
                     @include titulos;
                     font-size: 1.6em;
+                    @include tablet{
+                        font-size: 1.5em;
+                    }
                 }
                 p{
                     @include texto;
@@ -268,30 +339,59 @@ header{
 
 .quem_somos{
     grid-area: somos;
-    height: 400px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     background-color: $contraste;
-    padding: 0 200px;
+    padding: 0 150px;
+    height: 500px;
+    @include notebook{
+        padding: 0 20px;
+        justify-content: center;
+    }
+    @include tablet{
+        height: auto;
+    }
+
 
     .texto{
-        max-width: 500px;
+        max-width: 450px;
+        @include notebook{
+            padding: 40px 20px;
+        }
+        @include mobile{
+            height: auto;
+            padding: 40px 0;
+        }
         h1{
             @include titulos;            
             letter-spacing: 2px;
             font-size: 32px;
+            @include tablet{
+                font-size: 28px;
+            }
         }
         p{
             @include texto;
             line-height: 25px;
             font-size: 16px;
+            @include tablet{
+                font-size: 14px;
+                line-height: 20px;
+            }
         }
     }
 
     .imagem{
         img{
             max-width: 400px;
+            @include tablet{
+                max-width: 300px;
+            }
+            @include mobile{
+                display: none;
+            }
         }
     }
 }
@@ -309,6 +409,9 @@ header{
         font-size: 36px;
         letter-spacing: 1px;
         text-transform: capitalize;
+        @include tablet{
+            font-size: 28px;
+        }
     }
 
     .telaCliente{
@@ -373,17 +476,36 @@ footer{
     background-color: $contraste;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     height: 300px;
+    @include notebook{
+        padding: 0 10px;
+    }
+    @include tablet{
+        justify-content: center;
+    }
+    @include mobile{
+        height: auto;
+        padding: 40px 0; 
+    }
 
     .conteudo{
         img{
             width: 250px;
-            margin-right: 50px;
+            @include mobile{
+                max-width: 100%;
+                padding: 0 20px;
+            }
         }
         p{
             @include texto;
             max-width: 300px;
+            @include mobile{
+                max-width: 100%;
+                padding: 0 20px;
+                font-size: 12px;
+            }
         }
     }
 
@@ -392,9 +514,15 @@ footer{
             @include titulos;
             font-size: 24px;
             letter-spacing: 2px;
+            @include mobile{
+                font-size: 16px;
+            }
         }
         .icones{
             margin-right: 6em;
+            @include mobile{
+                width: 100%;
+            }
             i{
                 cursor: pointer;
                 font-size: 30px;
@@ -407,7 +535,18 @@ footer{
                     transition: .5s;
                     color: $contraste;
                 }
+                @include mobile{
+                    margin:  0;
+                    font-size: 15px;
+                }
             }
+        }
+        @include tablet{
+            margin-top: 20px;
+            margin-left: 50px;
+        }
+        @include mobile{
+            max-width: 100%;
         }
     }
 }
@@ -417,8 +556,45 @@ footer{
     display: flex;
     justify-content: center;
     padding: 10px 0;
+    text-align: center;
     @include texto;
     p{
-        font-family: 12px;
+        font-size: 12px;
+        @include mobile{
+            font-size: 12px;
+        }
     }
 }
+.blog{
+    grid-area: blog;
+    grid-column: 1/5;
+    width: 100%;
+    height: auto;
+
+    img{
+        width: 100%;
+        height: 500px; 
+        padding: 5%; 
+    }
+}
+.faq{
+    grid-area: faq;
+    grid-column: 1/5;
+    width: 100%;
+    height: auto;
+
+    img{
+        width: 100%;
+        height: 500px; 
+        padding: 5%; 
+    }
+}
+
+.simulador{
+    grid-area: simulador;
+    grid-column: 1/5;
+    width: 100%;
+    height: auto;
+    
+}
+
