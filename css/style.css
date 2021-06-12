@@ -146,6 +146,11 @@ header ul.topnav li.icon {
     color: #fdfdfd;
   }
 }
+@media screen and (max-width: 500px) {
+  header ul.topnav.responsive {
+    margin-top: 60%;
+  }
+}
 
 .slide {
   grid-area: slide;
@@ -322,6 +327,25 @@ header ul.topnav li.icon {
 @media only screen and (max-width: 480px) {
   .como_funciona .titulo p {
     font-size: 12px;
+  }
+}
+.como_funciona .btn a {
+  background: #52658F;
+  color: #fdfdfd;
+  padding: 1%;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px 1px gray;
+  font-family: "Nunito", sans-serif;
+  border: 0;
+  text-decoration: none;
+}
+.como_funciona .btn {
+  text-align: center;
+  margin-bottom: 5%;
+}
+@media only screen and (max-width: 955px) {
+  .como_funciona .btn {
+    margin-top: 3%;
   }
 }
 .como_funciona .conteudo {
