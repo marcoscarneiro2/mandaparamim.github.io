@@ -74,73 +74,134 @@ header{
     align-items: center;
     height: 64px;
     z-index: 5;
-    
-    nav{
-        width: 100%;
-        position: fixed;
-        background-color: $neutra;
-        height: 64px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 100px;
-        @include sombra;
-        @include notebook{
-            padding: 0;
+
+    //MENU RESPONSIVO
+nav{
+    width: 100%;
+    position: fixed;
+    background-color: $neutra;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+    @include sombra;
+    @include notebook{
+        padding: 0;
+    }
+}
+.logo{
+    img{
+        margin-top: 10px;
+        width: 250px;
+        cursor: pointer;
+        @include tablet{
+            max-width: 150px;
+            margin-left: 10%;
         };
-
-        .logo{
-            img{
-                margin-top: 10px;
-                width: 250px;
-                cursor: pointer;
-                @include tablet{
-                    max-width: 150px;
-                };
-            }
-        }
-
-        ul{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            li{
-                list-style: none;
-                margin-left: 20px;
-                @include tablet{
-                    display: none
-                };
-                @include primeiroFilho;
-                a{
-                    font-family: $botoes;
-                    text-decoration: none;
-                    color: $primaria;
-                    font-size: 1.1rem;
-                    letter-spacing: 2px;
-                    text-transform: capitalize;
-                    font-weight: 500;
-                    &:hover{
-                        transition: .5s;
-                        border-bottom: 1px solid $secundaria;
-                        color: $secundaria;
-                    }
-                }
-                .cadastro{
-                    color: $neutra;
-                    background-color: $primaria;
-                    padding: .8em 1em;
-                    border-radius: 5px;
-                    font-weight: 400;
-                    &:hover{
-                        transition: .5s;
-                        color: $contraste;
-                    }
-                }
-            }
-        }
     }
 }
 
+ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    li{
+        list-style: none;
+        margin-left: 20px;
+        @include tablet{
+            display: none
+        };
+        @include primeiroFilho;
+        a{
+            font-family: $botoes;
+            text-decoration: none;
+            color: $primaria;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+            font-weight: 500;
+            text-decoration: none;
+            &:hover{
+                transition: .5s;
+                border-bottom: 1px solid $secundaria;
+                color: $secundaria;
+                text-decoration: none;
+            }
+        }
+    }
+   
+
+.cadastro{
+    color: $neutra;
+    background-color: $primaria;
+    padding: .8em 1em;
+    border-radius: 5px;
+    font-weight: 400;
+    &:hover{
+        transition: .5s;
+        color: $contraste;
+        }
+    }
+}
+ul.topnav li.icon {
+        display: none;
+    }
+	
+	
+		@media screen and (max-width:680px) {
+		  ul.topnav li {
+              display: none;
+            }
+		  ul.topnav li.icon {
+			float: right;
+			display: inline;
+		  }
+          ul{
+            display: inline; 
+          }
+	}
+
+		
+		@media screen and (max-width:680px) {
+		  ul.topnav.responsive {
+			//position: relative;
+			background: $neutra;
+			height:auto;
+			padding:1%;
+			line-height:5px;
+			width:auto;
+            margin-top: 50%;
+            border-radius: 20px;
+		  }
+		  ul.topnav.responsive li.icon {
+			position: absolute;
+			right: 0;
+			top: 20%;
+		  }
+		  ul.topnav.responsive li {
+			float: none;
+			padding:0;
+			display: block;
+			font-size: 12px;
+            text-align: center;
+            &:hover{
+                background: $primaria;
+                color: $neutra;
+                border-radius: 20px;
+                text-decoration: none;
+            }
+		  }
+		  ul.topnav.responsive li a {
+			display: inline;
+			padding:0;
+			line-height:30px;
+            &:hover{
+                color: $neutra;
+            }
+		}
+	}
+ }      
 .slide{ 
     grid-area: slide;
     grid-column: 1/5;
@@ -256,15 +317,15 @@ header{
 
 .como_funciona{
     grid-area: funciona;
-    grid-column: 2/4;
-    height: 500px;
+    grid-column: 1/5;
+    height: auto;
     margin-top: 50px;
     @include notebook{
         grid-column: 1/5;
         padding: 10px;
     }
     @include tablet{
-        height: 1100px;
+        height: 1500px;
     }
     
     .titulo{
@@ -301,6 +362,7 @@ header{
         }
         .card{
             margin-top: 80px;
+           padding: 1%;
             .vector{
                 display: flex;
                 justify-content: space-between;

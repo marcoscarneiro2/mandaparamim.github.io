@@ -20,9 +20,9 @@
             <div class="logo">
                 <a href="index.html"><img src="img/logo.png" alt="logo"></a>
             </div>
-            <ul>
-                <li>
-                    <a href="index.html">Home</a>
+			<ul class="topnav"> 
+				<li>
+                    <a href="index.html"> Home</a>
                 </li>
                 <li>
                     <a href="index.html#somos">Quem somos</a>
@@ -39,8 +39,11 @@
                 <li>
                     <a href="https://app.ideainfo.com.br/exec/boxcontrol-index.php?account_id=2a54q9v5" class="cadastro">Login/Cadastro</a>
                 </li>
-            </ul>
-        </nav>
+				<li class="icon"><!--Inclui o ícone do responsivo na lista-->
+				<a style="padding: 20px; font-size: 40px;" href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+				</li>
+			</ul>
+		</nav>      
     </header>
     <div class="simulador">
     <iframe src="https://app.ideainfo.com.br/exec/simuladorfrete.php?account_id=2a54q9v5&color=0066bf&lang=pt" class="iframe" scrolling="no" width="100%" height="500px" frameborder="0"></iframe>
@@ -73,4 +76,10 @@
 <script src="node_modules/glider-js/glider.min.js"></script>
 <script type="module" src="script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js" integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+	function myFunction() {
+			document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
+		}
+</script>
 </html>

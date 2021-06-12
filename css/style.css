@@ -39,34 +39,35 @@ header nav {
     padding: 0;
   }
 }
-header nav .logo img {
+header .logo img {
   margin-top: 10px;
   width: 250px;
   cursor: pointer;
 }
 @media only screen and (max-width: 955px) {
-  header nav .logo img {
+  header .logo img {
     max-width: 150px;
+    margin-left: 10%;
   }
 }
-header nav ul {
+header ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-header nav ul li {
+header ul li {
   list-style: none;
   margin-left: 20px;
 }
 @media only screen and (max-width: 955px) {
-  header nav ul li {
+  header ul li {
     display: none;
   }
 }
-header nav ul li:first-child {
+header ul li:first-child {
   margin-left: 0;
 }
-header nav ul li a {
+header ul li a {
   font-family: "Alata", sans-serif;
   text-decoration: none;
   color: #52658F;
@@ -74,22 +75,76 @@ header nav ul li a {
   letter-spacing: 2px;
   text-transform: capitalize;
   font-weight: 500;
+  text-decoration: none;
 }
-header nav ul li a:hover {
+header ul li a:hover {
   transition: 0.5s;
   border-bottom: 1px solid #333A56;
   color: #333A56;
+  text-decoration: none;
 }
-header nav ul li .cadastro {
+header ul .cadastro {
   color: #fdfdfd;
   background-color: #52658F;
   padding: 0.8em 1em;
   border-radius: 5px;
   font-weight: 400;
 }
-header nav ul li .cadastro:hover {
+header ul .cadastro:hover {
   transition: 0.5s;
   color: #F7F5E6;
+}
+header ul.topnav li.icon {
+  display: none;
+}
+@media screen and (max-width: 680px) {
+  header ul.topnav li {
+    display: none;
+  }
+  header ul.topnav li.icon {
+    float: right;
+    display: inline;
+  }
+  header ul {
+    display: inline;
+  }
+}
+@media screen and (max-width: 680px) {
+  header ul.topnav.responsive {
+    background: #fdfdfd;
+    height: auto;
+    padding: 1%;
+    line-height: 5px;
+    width: auto;
+    margin-top: 50%;
+    border-radius: 20px;
+  }
+  header ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 20%;
+  }
+  header ul.topnav.responsive li {
+    float: none;
+    padding: 0;
+    display: block;
+    font-size: 12px;
+    text-align: center;
+  }
+  header ul.topnav.responsive li:hover {
+    background: #52658F;
+    color: #fdfdfd;
+    border-radius: 20px;
+    text-decoration: none;
+  }
+  header ul.topnav.responsive li a {
+    display: inline;
+    padding: 0;
+    line-height: 30px;
+  }
+  header ul.topnav.responsive li a:hover {
+    color: #fdfdfd;
+  }
 }
 
 .slide {
@@ -225,8 +280,8 @@ header nav ul li .cadastro:hover {
 
 .como_funciona {
   grid-area: funciona;
-  grid-column: 2/4;
-  height: 500px;
+  grid-column: 1/5;
+  height: auto;
   margin-top: 50px;
 }
 @media only screen and (max-width: 1200px) {
@@ -237,7 +292,7 @@ header nav ul li .cadastro:hover {
 }
 @media only screen and (max-width: 955px) {
   .como_funciona {
-    height: 1100px;
+    height: 1500px;
   }
 }
 .como_funciona .titulo {
@@ -283,6 +338,7 @@ header nav ul li .cadastro:hover {
 }
 .como_funciona .conteudo .card {
   margin-top: 80px;
+  padding: 1%;
 }
 .como_funciona .conteudo .card .vector {
   display: flex;
