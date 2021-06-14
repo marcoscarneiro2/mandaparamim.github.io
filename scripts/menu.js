@@ -3,7 +3,7 @@ export default function menu() {
     const itens_menu = document.querySelector('[data-itens_menu]').children
     const menu = document.querySelector('[data-itens_menu]')
     const array_menu = Array.from(itens_menu)
-    const tipos = ['touchstart']
+    const tipos = ['click']
 
     function myFunction() {
         // cria a animação de X
