@@ -98,6 +98,7 @@ header{
                 cursor: pointer;
                 @include tablet{
                     max-width: 150px;
+                    margin-left: 10%;
                 };
             }
         }
@@ -406,6 +407,9 @@ header{
         margin-bottom: 5%;
         @include tablet{
             margin-top: 3%;
+        }
+        @include mobile{
+            margin-top: 15%;
         }
     }
     .conteudo{

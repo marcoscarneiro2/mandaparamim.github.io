@@ -48,6 +48,7 @@ header nav .logo img {
 @media only screen and (max-width: 955px) {
   header nav .logo img {
     max-width: 150px;
+    margin-left: 10%;
   }
 }
 @media only screen and (max-width: 955px) {
@@ -381,6 +382,11 @@ header nav .reponsivo .mobile .menu:nth-child(3):hover {
 @media only screen and (max-width: 955px) {
   .como_funciona .btn {
     margin-top: 3%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .como_funciona .btn {
+    margin-top: 15%;
   }
 }
 .como_funciona .conteudo {

@@ -26,7 +26,7 @@ export default function menu() {
         tipos.forEach((tipo) => {
             menuLink.forEach(a => {
                 a.addEventListener(tipo, (e) => {
-                    const x = Array.from(e.target.parentNode.children)
+                    const x = Array.from(e.target.parentNode.parentNode.children)
                     x.forEach((i) => {
                         i.classList.remove('ativo')
                     })
