@@ -3,32 +3,44 @@ export default function menu() {
     const itens_menu = document.querySelector('[data-itens_menu]').children
     const menu = document.querySelector('[data-itens_menu]')
     const array_menu = Array.from(itens_menu)
+    const tipos = ['click', 'touchstart']
 
-    console.log(menu)
-    //muda de none pra block
     function myFunction() {
-        array_menu.forEach(x => {
-            x.classList.toggle('ativo')
-            if (x.classList == "") {
-                x.removeAttribute('class')
-            }
-        });
-    }
+        // cria a animação de X
+        const hambuguer = Array.from(menu_mobile.children)
 
-    // cria a animação de X
-    menu_mobile.addEventListener('click', () => {
-        const filhos = Array.from(menu_mobile.children)
-        filhos.forEach(e => {
+        hambuguer.forEach(e => {
             e.classList.toggle('ativo')
         })
-    })
 
-    if (window.innerWidth < 955) {
-        menu_mobile.addEventListener('click', () => {
-            menu.classList.toggle('ativo')
+        // adiciona ao Ul a classe ativo
+        menu.classList.toggle('ativo')
+
+        //muda de none pra block
+        const menuLink = array_menu.map(x => {
+            x.classList.toggle('ativo')
+            return x.firstElementChild
+        });
+
+        //remove tudo qnd clica em um link
+        tipos.forEach((tipo) => {
+            menuLink.forEach(a => {
+                a.addEventListener(tipo, (e) => {
+                    const x = Array.from(e.target.parentNode.parentNode.children)
+                    x.forEach((i) => {
+                        i.classList.remove('ativo')
+                    })
+                    menu.classList.remove('ativo')
+                    hambuguer.forEach(e => {
+                        e.classList.remove('ativo')
+                    })
+                })
+            })
         })
+
     }
 
-    menu_mobile.addEventListener('click', myFunction)
-
+    tipos.forEach(tipo => {
+        menu_mobile.addEventListener(tipo, myFunction)
+    })
 }
