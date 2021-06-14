@@ -5,14 +5,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 body {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 3fr 3fr 1fr;
-  grid-template-areas: "header header header header" "slide slide slide slide" "funciona funciona funciona funciona" "somos somos somos somos" "clientes clientes clientes clientes" "rodape rodape rodape rodape" "direitos direitos direitos direitos";
+  grid-template-areas: "header header header header" "slide slide slide slide" "funciona funciona funciona funciona" "somos somos somos somos" "clientes clientes clientes clientes" "blog blog blog blog" "faq faq faq faq" "simulador simulador simulador simulador" "rodape rodape rodape rodape" "direitos direitos direitos direitos";
 }
 
 header {
@@ -321,8 +320,8 @@ header nav .reponsivo .mobile .menu:nth-child(3):hover {
 
 .como_funciona {
   grid-area: funciona;
-  grid-column: 2/4;
-  height: 500px;
+  grid-column: 1/5;
+  height: auto;
   margin-top: 50px;
 }
 @media only screen and (max-width: 1200px) {
@@ -333,7 +332,7 @@ header nav .reponsivo .mobile .menu:nth-child(3):hover {
 }
 @media only screen and (max-width: 955px) {
   .como_funciona {
-    height: 1100px;
+    height: 1500px;
   }
 }
 .como_funciona .titulo {
@@ -365,6 +364,25 @@ header nav .reponsivo .mobile .menu:nth-child(3):hover {
     font-size: 12px;
   }
 }
+.como_funciona .btn a {
+  background: #52658F;
+  color: #fdfdfd;
+  padding: 1%;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px 1px gray;
+  font-family: "Nunito", sans-serif;
+  border: 0;
+  text-decoration: none;
+}
+.como_funciona .btn {
+  text-align: center;
+  margin-bottom: 5%;
+}
+@media only screen and (max-width: 955px) {
+  .como_funciona .btn {
+    margin-top: 3%;
+  }
+}
 .como_funciona .conteudo {
   height: 400px;
   display: flex;
@@ -379,6 +397,7 @@ header nav .reponsivo .mobile .menu:nth-child(3):hover {
 }
 .como_funciona .conteudo .card {
   margin-top: 80px;
+  padding: 1%;
 }
 .como_funciona .conteudo .card .vector {
   display: flex;
@@ -679,13 +698,35 @@ footer .redes .icones i:hover {
   }
 }
 
-@keyframes func_left {
-  from {
-    transform: translateX(200px);
-  }
-  to {
-    transform: translateX(0);
-  }
+.blog {
+  grid-area: blog;
+  grid-column: 1/5;
+  width: 100%;
+  height: auto;
+}
+.blog img {
+  width: 100%;
+  height: 500px;
+  padding: 5%;
+}
+
+.faq {
+  grid-area: faq;
+  grid-column: 1/5;
+  width: 100%;
+  height: auto;
+}
+.faq img {
+  width: 100%;
+  height: 500px;
+  padding: 5%;
+}
+
+.simulador {
+  grid-area: simulador;
+  grid-column: 1/5;
+  width: 100%;
+  height: auto;
 }
 
 /*# sourceMappingURL=style.css.map */

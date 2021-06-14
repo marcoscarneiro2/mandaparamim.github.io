@@ -3,7 +3,7 @@ export default function menu() {
     const itens_menu = document.querySelector('[data-itens_menu]').children
     const menu = document.querySelector('[data-itens_menu]')
     const array_menu = Array.from(itens_menu)
-    const tipos = ['click', 'touchstart']
+    const tipos = ['touchstart']
 
     function myFunction() {
         // cria a animação de X
@@ -18,7 +18,7 @@ export default function menu() {
 
         //muda de none pra block
         const menuLink = array_menu.map(x => {
-            x.classList.toggle('ativo')
+           x.classList.toggle('ativo')
             return x.firstElementChild
         });
 
@@ -26,7 +26,7 @@ export default function menu() {
         tipos.forEach((tipo) => {
             menuLink.forEach(a => {
                 a.addEventListener(tipo, (e) => {
-                    const x = Array.from(e.target.parentNode.parentNode.children)
+                    const x = Array.from(e.target.parentNode.children)
                     x.forEach((i) => {
                         i.classList.remove('ativo')
                     })

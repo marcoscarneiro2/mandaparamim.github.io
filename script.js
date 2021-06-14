@@ -1,11 +1,9 @@
 import card from './scripts/card.js';
 import dolar from './scripts/dolar.js';
 import menu from './scripts/menu.js';
-
-menu();
 card();
 dolar();
-
+menu();
 const carrousel = document.querySelector(".glider")
 
 new Glider(carrousel, {

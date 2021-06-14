@@ -50,7 +50,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 body{
@@ -58,12 +57,15 @@ body{
     display: grid;
     grid-template-columns: 1fr 3fr 3fr 1fr;
     grid-template-areas: "header header header header"
-                         "slide slide slide slide"
-                         "funciona funciona funciona funciona"
-                         "somos somos somos somos"
-                         "clientes clientes clientes clientes"
-                         "rodape rodape rodape rodape"
-                         "direitos direitos direitos direitos";
+    "slide slide slide slide"
+    "funciona funciona funciona funciona"
+    "somos somos somos somos"
+    "clientes clientes clientes clientes"
+    "blog blog blog blog"
+    "faq faq faq faq"
+    "simulador simulador simulador simulador"
+    "rodape rodape rodape rodape"
+    "direitos direitos direitos direitos";
 }
 
 header{
@@ -73,6 +75,7 @@ header{
     height: 64px;
     z-index: 5;
 
+    //MENU RESPONSIVO
     nav{
         width: 100%;
         position: fixed;
@@ -238,7 +241,7 @@ header{
         }
     }
 }
-
+      
 .slide{ 
     grid-area: slide;
     grid-column: 1/5;
@@ -354,15 +357,15 @@ header{
 
 .como_funciona{
     grid-area: funciona;
-    grid-column: 2/4;
-    height: 500px;
+    grid-column: 1/5;
+    height: auto;
     margin-top: 50px;
     @include notebook{
         grid-column: 1/5;
         padding: 10px;
     }
     @include tablet{
-        height: 1100px;
+        height: 1500px;
     }
     
     .titulo{
@@ -388,6 +391,23 @@ header{
             }
         }
     }
+    .btn a{
+        background: $primaria;
+        color: $neutra;
+        padding: 1%;
+        border-radius: 20px;
+        box-shadow: 0px 5px 10px 1px gray;
+        font-family: $textos;
+        border: 0;
+        text-decoration: none;
+    }
+    .btn{
+        text-align: center;
+        margin-bottom: 5%;
+        @include tablet{
+            margin-top: 3%;
+        }
+    }
     .conteudo{
         height: 400px;
         display: flex;
@@ -399,6 +419,7 @@ header{
         }
         .card{
             margin-top: 80px;
+           padding: 1%;
             .vector{
                 display: flex;
                 justify-content: space-between;
@@ -663,12 +684,36 @@ footer{
         }
     }
 }
+.blog{
+    grid-area: blog;
+    grid-column: 1/5;
+    width: 100%;
+    height: auto;
 
-@keyframes func_left {
-    from{
-        transform: translateX(200px);
-    }
-    to{
-        transform: translateX(0);
+    img{
+        width: 100%;
+        height: 500px; 
+        padding: 5%; 
     }
 }
+.faq{
+    grid-area: faq;
+    grid-column: 1/5;
+    width: 100%;
+    height: auto;
+
+    img{
+        width: 100%;
+        height: 500px; 
+        padding: 5%; 
+    }
+}
+
+.simulador{
+    grid-area: simulador;
+    grid-column: 1/5;
+    width: 100%;
+    height: auto;
+    
+}
+
